@@ -48,12 +48,29 @@ displayFavAgent();
 displayAgents();
 
 // Création des fonctions
+function displaySelect() {
+  main.innerHTML = ""
+
+  agents.forEach(agent => {
+    let newDiv = document.createElement("div");
+    let select = document.createElement("select");
+    let option = document.createElement("option");
+
+    select.textContent = "Choisissez la catégories";
+    option.textContent = agent.role.uuid;
+
+    
+
+
+  });
+}
 function displayAgents() {
   // Vider le tableau à chaque rechargement de la fonction //
   main.innerHTML = '';
 
   // Afficher tout les personnages dans une boucle
   agents.forEach((agent) => {
+ 
     // Mettre un if pour ne pas remettre 2 fois le meme personnage en favoris
     if (!favorisAgent.includes(agent.uuid)) {
       // crée les éléments pour chaque personnage
@@ -373,6 +390,8 @@ function displayFavWeapon() {
     favDiv.appendChild(newDiv);
   });
 }
+
+
 
 // Importer une API avec fetchData
 async function fetchData() {
