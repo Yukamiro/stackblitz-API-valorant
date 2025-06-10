@@ -57,11 +57,20 @@ function displaySelect() {
     let option = document.createElement("option");
 
     select.textContent = "Choisissez la catégories";
-    option.textContent = agent.role.uuid;
+    option.textContent = agent.role.displayName;
+    option.value = "";
 
-    
+    select.addEventListener("change",(event) =>{
+      let roles = event.target.value;
+      if(!roles == ""){
+        displayAgent(e.target.value);
+      }
+      displayAgents();
+    })
 
-
+    select.appendChild(option);
+    newDiv.appendChild(select);
+    main.appendChild(newDiv);
   });
 }
 function displayAgents() {
